@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenu!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+        {# Framework Bootstrap #}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        
+        {% block stylesheets %}
+        {# Insérer les fichiers CSS dans ce bloc #}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
+
+    </head>
+
+    <body>
+        
+        {# Créer une barre de navigation pour basculer d'une page à l'autre #}
+        <nav>
+            {# Si un administrateur est connecté alors unr option PARAMETRES s'affiche en plus dans le menu #}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="">PARAMETRES</a>
+            {% endif %}
+
+            {# Si un user est connecté alors unr option PROFIL s'affiche en plus dans le menu #}
+            {% if is_granted('ROLE_USER') %}
+                <a href="">PROFIL</a>
+            {% endif %}
+
+            {# Si un utilisateur est connecté alors les options ci dessous s'affichent dans le menu #}
+            {% if app.user %}
+
+                <a href="{{ path ('app_home') }}">ACCUEIL</a>
+                <a href="{{ path ('app_categorie') }}">CATEGORIES</a>
+                <a href="{{ path ('app_matiere') }}">MODULES</a>
+                <a href="{{ path ('app_session') }}">SESSIONS</a>
+                <a href="{{ path ('app_stagiaire') }}">STAGIAIRES</a>
+                <a href="{{ path ('app_logout') }}">DECONNEXION</a>
+                <img class="logo" src="{{ asset('img/logoElan.jpg') }}" alt="logo Elan Formation">
+
+             {% else %}
+                
+                <a href="{{ path ('app_home') }}">ACCUEIL</a>
+                <a href="{{ path ('app_register') }}">INSCRIPTION</a>
+                <a href="{{ path ('app_login')}}">CONNEXION</a>
+                <img class="logo" src="{{ asset('img/logoElan.jpg') }}" alt="logo Elan Formation">
+
+            {% endif %}
+           
+        </nav>
+        
+        {# Utiliser container (fonctionnalité Bootstrap) #}
+        <main class="container">
+
+            {% block body %}
+                {# Mettre en place tout ce qui va changer d'une vue à l'autre #}
+            {% endblock %}
+
+        </main>
+
+        <footer>
+            <p>&copy; 2023 - ELAN FORMATION - <a href="">CGU</a> - <a href="">Mentions légales</a></p>
+        </footer>
+
+        {% block javascripts %}
+
+            {# Framework Bootstrap #}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+             
+            {# Script pour permettre l'exécution du collection type #}
+            <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="crossorigin="anonymous"></script>
+            
+            {# Insérer les fichiers JavaScript dans ce bloc #}
+            <script src="{{ asset('js/script.js') }}"></script>
+
+            {# Script pour lier le projet au fichier gsf.js #}
+            <script src="{{ asset('js/gsf.js') }}"></script>
+
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+        
+    <h1>INSCRIPTION</h1>
+    
+        <div class="formAddCo">
+
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm) }}
+
+
+                {{ form_row(registrationForm.pseudo) }}
+                
+
+                {{ form_row(registrationForm.email) }}
+
+                {# {{ form_label(registrationForm.email) }}
+                {{ form_errors(registrationForm.email) }}
+
+                <ul>
+                {% for emailField in registrationForm.email %}
+                    <li>
+                        {{ form_errors(emailField) }}
+                        {{ form_widget(emailField) }}
+                    </li>
+                {% endfor %}
+                </ul> #}
+
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+                
+                {{ form_row(registrationForm.agreeTerms, {
+                    label: 'CGV'
+                }) }}
+
+                {# <button type="submit" class="btn">Valider</button> #}
+                <button type="submit" class="btn btn-dark">Valider</button>
+
+            {{ form_end(registrationForm) }}
+
+        </div>
+    
+
+    <figure>
+        <img class="fond" src="{{asset('img/login.jpg')}}" alt="Ordinateur ">
+    </figure>
+
+{% endblock %}

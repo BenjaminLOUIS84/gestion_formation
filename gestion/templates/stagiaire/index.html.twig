@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stagiaire{% endblock %}
+
+{% block body %}
+
+    <div class="addStudent">
+        <h1>STAGIAIRES</h1>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            {# ADMIN ajoute un nouveau stagiaire #}
+            <a href="{{ path ('new_stagiaire') }}">AJOUTER</a>
+        {% endif %}
+
+    </div>
+    
+    {# BDD L'élément de la collection #}
+    {# Créer une boucle for #}
+    {% for stagiaire in stagiaires %}
+
+        {# BDD nom de l'objet . pour accéder à un attribu précis #}
+        {# BDD on utilise le nom de Stagiaire.php dans Entity plutôt que celui de la BDD #}
+        {# {{stagiaire}}<br> #}
+
+        {# Grâce à la fonction __toString() crée dans Stagiaire.php de Entity, le code ci dessus est simplifié #}
+
+        {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
+        placer lien {{ path ('show_stagiaire') }} dans le href et ajouter l'ID pour récupérer l'objet stagiaire #}
+        <div class="students">
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path ('show_stagiaire', {id: stagiaire.id}) }}">Voir</a>
+            {% endif %}
+            
+            <h3>{{ stagiaire }}</h3>
+            
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-dark" href="{{ path ('edit_stagiaire', {id: stagiaire.id}) }}">MODIFIER</a>
+                <a class="btn btn-dark" href="{{ path ('delete_stagiaire', {id: stagiaire.id}) }}">SUPPRIMER</a><br>
+            {% endif %}
+            
+        </div>
+
+        <figure>
+            <img class="fond" src="{{asset('img/stagiaire.jpg')}}" alt="Stagiaires devant l'entrée">
+        </figure>    
+        
+    {% endfor %}
+
+    
+{% endblock %}
+
+
+{# ////////////////////////////////////////////////////////////////////////////////////// #}
+{# CECI EST GENERE AUTOMATIQUEMENT #}
+{# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/laragon/www/gestion_formation/Gestion/Gestion/src/Controller/StagiaireController.php'|file_link(0) }}">src/Controller/StagiaireController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/laragon/www/gestion_formation/Gestion/Gestion/templates/stagiaire/index.html.twig'|file_link(0) }}">templates/stagiaire/index.html.twig</a></code></li>
+    </ul>
+</div> #}
+
+{# ////////////////////////////////////////////////////////////////////////////////////// #}

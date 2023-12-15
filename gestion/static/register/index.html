@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+
+
+        <a href="../home">ACCUEIL</a>
+        <a href="../register">INSCRIPTION</a>
+        <a href="../login">CONNEXION</a>
+        <img class="logo" src="../img/logoElan.jpg" alt="logo Elan Formation">
+
+
+    </nav>
+
+    <main class="container">
+
+
+
+        <h1>INSCRIPTION</h1>
+
+        <div class="formAddCo">
+
+
+
+            <form name="registration_form" method="post">
+
+
+                <div><label for="registration_form_pseudo" class="required">Pseudo</label><input type="text"
+                        id="registration_form_pseudo" name="registration_form[pseudo]" required="required" /></div>
+
+
+                <div><label for="registration_form_email" class="required">Email</label><input type="email"
+                        id="registration_form_email" name="registration_form[email]" required="required" /></div>
+
+
+                <div><label for="registration_form_plainPassword_first" class="required">Password</label><input
+                        type="password" id="registration_form_plainPassword_first"
+                        name="registration_form[plainPassword][first]" required="required" class="password-field" />
+                </div>
+                <div><label for="registration_form_plainPassword_second" class="required">Confirm</label><input
+                        type="password" id="registration_form_plainPassword_second"
+                        name="registration_form[plainPassword][second]" required="required" class="password-field" />
+                </div>
+
+                <div><label for="registration_form_agreeTerms" class="required">CGV</label><input type="checkbox"
+                        id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required"
+                        value="1" /></div>
+
+                <button type="submit" class="btn btn-dark">Valider</button>
+
+                <input type="hidden" id="registration_form__token" name="registration_form[_token]"
+                    value="d24e314781d2e9c37.sF6Eb9PBa2vQ8MkuBKSk_4bA_N_bKEeiMiuveqQpcJY.5CjrF5v4GyThmIxlUczSz8XypbSMawbmVGKbV9ZlRMT6Fsw355YsLpKS_Q" />
+            </form>
+
+        </div>
+
+
+        <figure>
+            <img class="fond" src="../img/login.jpg" alt="Ordinateur ">
+        </figure>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 - ELAN FORMATION - <a href="">CGU</a> - <a href="">Mentions légales</a></p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+
+    <script src="/js/gsf.js"></script>
+
+
+</body>
+
+</html>

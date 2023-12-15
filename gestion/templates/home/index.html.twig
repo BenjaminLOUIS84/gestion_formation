@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <h1>ELAN FORMATION</h1>
+    <h2>Réussir ses études</h2>
+
+    <div class="welcomeHome">
+
+        {% if app.user %}
+
+        
+
+        <div class="mb-3">
+            {# Message quand un user est connecté #}
+            <h1>Bienvenue {{ app.user.pseudo }}</h1> 
+        </div>
+        
+        {% endif %}
+        
+    </div>
+
+    <figure>
+        <img class="fond" src="{{asset('img/ecole.jpg')}}" alt="Façade du bâiment extérieur ">
+    </figure>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{# CF Commentaires de index.html.twig du dossier session et du Controlleur #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la Session{% endblock %}
+
+{% block body %}
+
+    <h1>DETAIL</h1>
+    
+    {# Affiche le titre de la session #}
+    <h2>{{session.formation}}</h2>
+    {# Affiche la déscritpion du titre #}
+    <p>{{session.formation.description}}</p>
+
+    {# Affciher les infos de la session de la liste dates & nombre de places #}
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Nombre de places</th>  
+                <th>Nombre de places restantes</th>  
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{session.dateDebut | date("d-m-Y")}}</td>
+                <td>{{session.dateFin | date("d-m-Y")}}</td>
+                <td>{{session.nbMax}}</td>
+                <td>{{session.nbMax - session.stagiaires | length }}</td>
+            </tr>  
+        </tbody>
+
+    </table>
+
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Modules</th>
+                <th>Nombre de jours</th>
+                <th>Catégories</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+            {# On peut afficher le nom de la matière et le nombre de jours de l'entité Programme.php dans l'entité Session.php grâce à la relation entre les deux entités #}
+            {# Dans Session.php on récupère la collection $programmes, pour cela, il faut faire une boucle #}
+
+            {% for programme in session.programmes %}
+
+                <tr>
+                    <td>{{programme.matiere}}</td>
+                    <td>{{programme}}</td>
+
+                    {# Affiche la catégorie avec ce chaînage #}
+                    <td>{{programme.matiere.categorie}}</td>
+                </tr>
+
+            {% endfor %}
+            
+        </tbody>
+
+    </table>
+
+    <h2>MODULES NON PROGRAMMES</h2> 
+    
+    <table class="table">
+        
+        <thead>
+            <tr>
+                <th>Dénomination</th>
+                <th>Catégories</th>
+            </tr>
+        </thead>
+
+         {% for nonProgramme in nonProgrammes %}
+
+            <tbody>
+                <tr>
+                    <td>{{nonProgramme}}</td>
+                    <td>{{nonProgramme.categorie}}</td>
+                </tr>  
+            </tbody>
+
+        {% endfor %} 
+
+     </table> 
+
+
+    <h2>PARTICIPANTS</h2>
+
+    {# S'il y a des stagiaires dans la session alors afficher leurs noms et prénoms #}
+    {% if session.stagiaires | length >0 %}
+
+        {% for stagiaire in session.stagiaires %}
+            
+            <h4>{{ stagiaire }}</h4>
+            
+            {% if is_granted('ROLE_ADMIN') %}
+                {# Créer un lien interne pour accéder aux infos du stagiaire #}
+                <a class="btn btn-dark" href="{{path('show_stagiaire', {'id':stagiaire.id})}}">Voir</a>
+            {% endif %}
+            
+            
+
+        {% endfor %}
+
+        {# sinon #}
+    {% else %}
+        Il n'a pas encore de stagiaires dans cette session
+    {% endif %}
+
+    <h2>NON INSCRITS</h2> 
+    
+    <table class="table">
+        
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+        </thead>
+
+        {% for nonInscrit in nonInscrits %}
+
+            <tbody>
+                <tr>
+                    <td>{{nonInscrit.nom}}</td>
+                    <td>{{nonInscrit.prenom}}</td>
+                </tr>  
+            </tbody>
+
+        {% endfor %}
+
+    </table>
+
+    <a class="btn btn-dark" href="{{ path ('app_session') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/programme.png')}}" alt="Ordinateurs, clavier et appareil photo">
+    </figure>
+
+{% endblock %}
+

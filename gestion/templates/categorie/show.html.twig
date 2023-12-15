@@ -1,0 +1,44 @@
+{# CF Commentaires de index.html.twig du dossier stagiaire et du Controlleur #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la Catégorie{% endblock %}
+
+{% block body %}
+
+    <div class="addStudent">
+
+        {# Affiche le nom de la catégorie #}
+        <h1>MODULES :  {{categorie}}</h1>
+
+        {# On peut afficher le nom de la matière de l'entité Matière.php dans l'entité Catégorie.php grâce à la relation entre les deux entités #}
+        {# Dans Categorie.php on récupère la collection $matieres, pour cela, il faut faire une boucle #}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            {# ADMIN ajoute un nouveau module #}
+            <a href="{{ path ('new_matiere') }}">AJOUTER</a>
+        {% endif %}
+
+    </div>
+    
+    {% for matiere in categorie.matieres %}
+
+        <div class="welcome">
+        
+            <h2>{{ matiere }}</h2>
+
+            {# ADMIN #}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-dark" href="{{ path ('edit_matiere', {id: matiere.id}) }}">MODIFIER</a>
+                <a class="btn btn-dark" href="{{ path ('delete_matiere', {id: matiere.id}) }}">SUPPRIMER</a>
+            {% endif %}
+
+        </div>
+
+    {% endfor %}
+
+    <figure>
+        <img class="fond" src="{{asset('img/modules.jpg')}}" alt="Plaque Elan Formation">
+    </figure>
+
+{% endblock %}

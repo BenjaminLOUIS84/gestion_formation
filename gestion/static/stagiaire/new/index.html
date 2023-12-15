@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Ajouter un nouveau stagiaire</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        
+                        <link rel="stylesheet" href="/css/style.css">
+        
+    </head>
+
+    <body>
+        
+                <nav>
+                        
+                        
+                                        
+                <a href="/home">ACCUEIL</a>
+                <a href="/register">INSCRIPTION</a>
+                <a href="/login">CONNEXION</a>
+                <img class="logo" src="/img/logoElan.jpg" alt="logo Elan Formation">
+
+                       
+        </nav>
+        
+                <main class="container">
+
+            
+         
+
+        <h1>Ajouter un nouveau stagiaire</h1>
+
+    
+    <div class="formAdd">
+
+                <form name="stagiaire" method="post"><div id="stagiaire"><div><label for="stagiaire_nom" class="required">Nom</label><input type="text" id="stagiaire_nom" name="stagiaire[nom]" required="required" /></div><div><label for="stagiaire_prenom" class="required">Prenom</label><input type="text" id="stagiaire_prenom" name="stagiaire[prenom]" required="required" /></div><div><label for="stagiaire_genre" class="required">Genre</label><input type="text" id="stagiaire_genre" name="stagiaire[genre]" required="required" /></div><div><label for="stagiaire_ville" class="required">Ville</label><input type="text" id="stagiaire_ville" name="stagiaire[ville]" required="required" /></div><div><label for="stagiaire_mail" class="required">Mail</label><input type="text" id="stagiaire_mail" name="stagiaire[mail]" required="required" /></div><div><label for="stagiaire_telephone" class="required">Telephone</label><input type="text" id="stagiaire_telephone" name="stagiaire[telephone]" required="required" /></div><div><label for="stagiaire_date_naissance" class="required">Date naissance</label><input type="date" id="stagiaire_date_naissance" name="stagiaire[date_naissance]" required="required" class="form-control" /></div><div><button type="submit" id="stagiaire_valider" name="stagiaire[valider]" class="btn btn-dark">Valider</button></div><input type="hidden" id="stagiaire__token" name="stagiaire[_token]" value="4ee05f589e83d107ee.0RFD0-a3y9RAbVa_mOwoHe0OYPNfFwPG5BFYjki4r2c.6FsEsoX9lLcaCxHvzrZMUqxUGrwJUXr_jkAhwT7ew1apaQ-2leGnriEPFw" /></div></form>
+
+    </div>
+
+    <a class="btn btn-dark" href="/stagiaire">RETOUR</a>
+ 
+    <figure>
+        <img class="fond" src="/img/addStudent.jpg" alt="Ascensseur">
+    </figure>
+    
+
+        </main>
+
+        <footer>
+            <p>&copy; 2023 - ELAN FORMATION - <a href="">CGU</a> - <a href="">Mentions légales</a></p>
+        </footer>
+
+        
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+             
+                        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="crossorigin="anonymous"></script>
+            
+                        <script src="/js/script.js"></script>
+
+                        <script src="/js/gsf.js"></script>
+
+        
+    </body>
+</html>

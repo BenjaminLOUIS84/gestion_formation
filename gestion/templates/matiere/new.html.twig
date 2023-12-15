@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un nouveau module{% endblock %}
+
+{% block body %}
+
+    {# Condition pour gérer le titre selon si on créer ou l'on modifie un module #}
+    {% if edit %}
+        <h1>Modifier un module</h1>
+    {% else %} 
+        <h1>Ajouter un nouveau module</h1> 
+    {% endif %}
+
+    <div class="formAdd">
+
+        {# Affiche le formulaire #}
+        {{form(formAddMatiere)}}
+
+    </div>
+
+    <a class="btn btn-dark" href="{{ path ('app_matiere') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/addStudent.jpg')}}" alt="Ascensseur">
+    </figure>
+
+{% endblock %}

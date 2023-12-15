@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sessions{% endblock %}
+
+{% block body %}
+
+    <div class="addStudent">
+
+        <h1>SESSIONS</h1>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            {# Lien pour ajouter une nouvelle session #}
+            <a href="{{ path ('new_session') }}">AJOUTER</a>
+        {% endif %}
+
+    </div>
+
+    {# Afficher les sessions passées avec la fonction past() créer dans le modèle) #}
+    
+    <div class="periode">
+        <a class="btn btn-dark" href="{{path ('past_session')}}">Sessions passées</a>
+        <a class="btn btn-dark" href="{{path ('present_session')}}">Sessions en cours</a>
+        <a class="btn btn-dark" href="{{path ('futur_session')}}">Sessions à venir</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Intitulé</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Nombre de places</th>  
+                <th>Nombre de places restantes</th>  
+            </tr>
+        </thead>
+
+        {# BDD L'élément de la collection #}
+        {# Créer une boucle for #}
+        {% for session in sessions %}
+
+            {# BDD nom de l'objet . pour accéder à un attribu précis #}
+            {# BDD on utilise le nom de Session.php dans Entity plutôt que celui de la BDD #}
+            {# {{session.formation}}<br> #}
+
+            {# Grâce à la fonction __toString() crée dans Session.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
+
+            {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
+            placer lien {{ path ('show_session') }} dans le href et ajouter l'ID pour récupérer l'objet session #}
+            
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="{{ path ('show_session', {id: session.id}) }}">{{ session.formation }}</a><br>
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="btn btn-dark" href="{{ path ('edit_session', {id: session.id}) }}">MODIFIER</a>
+                            <a class="btn btn-dark" href="{{ path ('delete_session', {id: session.id}) }}">SUPPRIMER</a>
+                        {% endif %}
+                        
+                    </td>
+
+                    <td>{{session.dateDebut | date("d-m-Y")}}</td>
+                    <td>{{session.dateFin | date("d-m-Y")}}</td>
+                    <td>{{session.nbMax}}</td>
+
+                    {# Réutilisable (CF Session.php créer dans cette entité la fonction getNbInscrit()) Pour calculer le nombre de place restante  #}
+                    {# <td>{{session.nbMax - session.nbInscrit}}</td> #}
+                    
+                    {# Méthode Ponctuelle avec le filtre length #}
+                    <td>{{session.nbMax - session.stagiaires | length }}</td>
+
+                </tr>  
+            </tbody>
+
+        {% endfor %}
+
+    </table>
+
+    <figure>
+        <img class="fond" src="{{asset('img/session.jpg')}}" alt="Salle de classe">
+    </figure>
+
+{% endblock %}

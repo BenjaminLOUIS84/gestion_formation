@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matières{% endblock %}
+
+{% block body %}
+
+    <div class="addStudent">
+
+        <h1>MODULES</h1> 
+
+        {% if is_granted('ROLE_ADMIN') %}
+            {# ADMIN ajoute un nouveau module #}
+            <a href="{{ path ('new_matiere') }}">AJOUTER</a>
+        {% endif %}
+
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dénomination</th>
+                <th>Catégories</th>
+            </tr>
+        </thead>
+
+        {# BDD L'élément de la collection #}
+        {# Créer une boucle for #}
+        {% for matiere in matieres %}
+
+            {# BDD nom de l'objet . pour accéder à un attribu précis #}
+            {# BDD on utilise le nom de Matiere.php dans Entity plutôt que celui de la BDD #}
+
+            {# Grâce à la fonction __toString() crée dans Matiere.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
+
+            {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
+            placer lien {{ path ('show_matiere') }} dans le href et ajouter l'ID pour récupérer l'objet matiere #}
+            
+            {# <a href="{{ path ('show_matiere', {id: matiere.id}) }}">{{ matiere }}</a><br> #}
+
+            <tbody>
+                <tr>
+                    <td>
+                        {{matiere}}
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="btn btn-dark" href="{{ path ('edit_matiere', {id: matiere.id}) }}">MODIFIER</a>
+                            <a class="btn btn-dark" href="{{ path ('delete_matiere', {id: matiere.id}) }}">SUPPRIMER</a>
+                        {% endif %}
+
+                    </td>
+                    <td>{{matiere.categorie}}</td>
+                </tr>  
+            </tbody>
+
+        {% endfor %}
+
+    </table>
+
+    <figure>
+        <img class="fond" src="{{asset('img/session.jpg')}}" alt="Salle de classe">
+    </figure>
+
+
+{% endblock %}

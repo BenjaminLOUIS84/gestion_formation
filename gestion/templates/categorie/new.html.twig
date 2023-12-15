@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une nouvelle catégorie{% endblock %}
+
+{% block body %}
+
+    {# Condition pour gérer le titre selon si on créer ou l'on modifie une entreprise #}
+    {% if edit %}
+        <h1>Modifier une catégorie</h1>
+    {% else %}
+        <h1>Ajouter une nouvelle catégorie</h1> 
+    {% endif %}
+
+    <div class="formAdd">
+
+        {# Affiche le formulaire #}
+        {{form(formAddCategorie)}}
+
+    </div>
+
+    <a class="btn btn-dark" href="{{ path ('app_categorie') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/addStudent.jpg')}}" alt="Ascensseur">
+    </figure>
+
+{% endblock %}

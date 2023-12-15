@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afficher les sessions en cours{% endblock %}
+
+{% block body %}
+
+    <h1>Sessions en cours</h1> 
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Intitulé</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+            </tr>
+        </thead>
+
+        {# BDD L'élément de la collection #}
+        {# Créer une boucle for #}  
+        {% for presentSession in presentSessions %}
+
+            {# BDD nom de l'objet . pour accéder à un attribu précis #}
+            {# BDD on utilise le nom de Session.php dans Entity plutôt que celui de la BDD #}
+            {# {{session.formation}}<br> #}
+
+            {# Grâce à la fonction __toString() crée dans Session.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
+
+            {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
+            placer lien {{ path ('show_session') }} dans le href et ajouter l'ID pour récupérer l'objet session #}
+            
+            <tbody>
+                <tr>
+                    <td>{{presentSession}}</td>
+                    <td>{{presentSession.dateDebut | date("d-m-Y")}}</td>
+                    <td>{{presentSession.dateFin | date("d-m-Y")}}</td>
+                </tr>  
+            </tbody>
+
+        {% endfor %}
+
+    </table>
+
+    <a class="btn btn-dark" href="{{ path ('app_session') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/periode.jpg')}}" alt="Parking">
+    </figure>
+
+{% endblock %}

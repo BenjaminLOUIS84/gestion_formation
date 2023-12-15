@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formations{% endblock %}
+
+{% block body %}
+
+    <h1>FORMATIONS</h1>
+
+    {# BDD L'élément de la collection #}
+    {# Créer une boucle for #}
+    {% for formation in formations %}
+
+        {# BDD nom de l'objet . pour accéder à un attribu précis #}
+        {# BDD on utilise le nom de Formation.php dans Entity plutôt que celui de la BDD #}
+        {{formation}}<br>
+
+        {# Grâce à la fonction __toString() crée dans Formation.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
+
+        {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
+        placer lien {{ path ('show_formation') }} dans le href et ajouter l'ID pour récupérer l'objet formation #}
+        
+        {# <a href="{{ path ('show_formation', {id: formation.id}) }}">{{ formation }}</a><br> #}
+
+    {% endfor %}
+
+{% endblock %}

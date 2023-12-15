@@ -1,0 +1,42 @@
+{# CF Commentaires de index.html.twig du dossier stagiaire et du Controlleur #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail du Stagiaire{% endblock %}
+
+{% block body %}
+
+    <div class="fiche">
+
+        <h1>INFORMATIONS</h1>
+
+        <h3>{{stagiaire}}</h3>
+        
+        Genre : {{ stagiaire.genre }}<br>
+
+        {# Utiliser le filtre | date("d-m-Y")  pour formater la date #}
+        Date de Naissance : {{ stagiaire.dateNaissance | date("d-m-Y") }}<br>
+        
+        {# Faire appel à la fonction getAge() pour afficher l'âge #}
+        Age : {{stagiaire.age()}} ans<br>
+
+        Ville : {{ stagiaire.ville }}<br>
+        Email : {{ stagiaire.mail }}<br>
+        Téléphone : {{ stagiaire.telephone }}
+
+        <h2>SESSIONS PREVUES</h2>
+
+        {% for session in stagiaire.sessions %}
+            {# Créer un lien interne pour accéder aux sessions du stagiaire #}
+            <a class="btn btn-dark" href="{{path('show_session', {'id':session.id})}}">{{ session.formation }}</a><br>
+        {% endfor %}
+
+    </div>
+
+    <a class="btn btn-dark" href="{{ path ('app_stagiaire') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/fiche.jpg')}}" alt="Notes accrochées au mur">
+    </figure>
+
+{% endblock %}

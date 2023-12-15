@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programme{% endblock %}
+
+{% block body %}
+
+    <h1>PROGRAMMES</h1>
+
+    {# BDD L'élément de la collection #}
+    {# Créer une boucle for #}
+    {% for programme in programmes %}
+
+        {# BDD nom de l'objet . pour accéder à un attribu précis #}
+        {# BDD on utilise le nom de Programme.php dans Entity plutôt que celui de la BDD #}
+        {{programme.matiere}}<br>
+
+        {# Grâce à la fonction __toString() crée dans Programme.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
+
+        {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
+        placer lien {{ path ('show_programme') }} dans le href et ajouter l'ID pour récupérer l'objet programme #}
+        
+        {# <a href="{{ path ('show_programme', {id: programme.id}) }}">{{ programme }}</a><br> #}
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,222 @@
+/*PARAMETRES DE BASE*/
+
+h1,
+h2 {
+    font-family: fantasy;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background: linear-gradient(-135deg, rgba(255, 255, 255, 0.1),rgba(63, 66, 71, 1));
+}
+
+main {
+    text-align: -webkit-center;
+}
+
+a {
+    text-decoration: none;
+    color: #f9b601;
+    margin: 30px;
+}
+
+a:hover {
+    transition: ease-in-out 0.5s;
+    color: snow;
+    opacity: 70%;
+}
+
+td a:hover {
+    color: gray;
+}
+
+.logo {
+    display: flex;
+    margin: auto;
+    position: absolute;
+    top:5px;
+    right:5px;
+    width: 5%;
+}
+
+.fond {
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 70%;
+}
+
+footer {
+    background: linear-gradient(-135deg, rgba(255, 255, 255, 0.1), rgba(63, 66, 71, 1));
+    color: #f9b601;
+    text-align: center;
+    align-items: center;
+    margin-top: 320px;
+    padding: 20px;
+}
+
+/*FORMULAIRES*/
+
+.formAdd {
+    background: linear-gradient(-135deg, rgba(255, 255, 255, 0.1), rgba(63, 66, 71, 1));
+    color: #f9b601;
+    line-height: 2;
+    padding: 20px;
+    width: max-content;
+    border-radius: 20px;
+    text-align: end;
+    box-shadow: 0px 6px 10px black;
+}
+
+form {
+    text-align: end;
+    align-items: end;
+    line-height: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    color:  #212529;
+}
+
+input {
+    margin-left: 40px;
+    margin: 5px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+#categorie_valider {
+    border-radius: 10px;
+}
+
+#stagiaire_valider {
+    border-radius: 10px;
+}
+
+select {
+    border-radius: 20px;
+}
+
+/*HOME*/
+
+.welcomeHome h3 {
+    font-family: auto;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.welcomeHome h1,
+.welcomeHome h3 {
+    animation: appear 1s;
+}
+
+/* Animation Faire apparaitre certains éléments Zoom*/
+
+@keyframes appear {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/*CATEGORIES->MATIERES*/
+
+.welcome h2,
+.welcome a {
+    animation: appear 1s;
+}
+
+.welcome {
+    display: flex;
+    align-items: end;
+}
+
+/*SESSIONS*/
+
+.periode {
+    display: flex;
+}
+
+/*STUDENTS*/
+
+h3 {
+    margin-left: 20px;
+    color: white;
+    font-style: italic;
+}
+
+.fiche {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), #f9b601);
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px black;
+    padding: 20px;
+    margin-top: 30px;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.students {
+    background: linear-gradient(-135deg, rgba(255, 255, 255, 0.1), rgba(63, 66, 71, 1));
+    text-align: left;
+    border-radius: 20px;
+}
+
+.addStudent {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), white);
+}
+
+.addStudent a {
+    color: #212529;
+    font-size: 1.8em;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.addStudent a:hover {
+    color: gray;
+    transform: scale(130%);
+    transition: ease-in-out 0.5s;
+}
+
+/*INSCRIPTION & CONNEXION*/
+
+.formAddCo {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(63, 66, 71, 1));
+    color: #f9b601;
+    line-height: 2;
+    padding: 20px;
+    width: max-content;
+    border-radius: 20px;
+    box-shadow: 0px 6px 10px black;
+    text-align: end;
+}
+
+.mb-3 a:hover {
+    color: #212529;
+}

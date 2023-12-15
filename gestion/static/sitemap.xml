@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url>
+            <loc>http://localhost/categorie</loc>
+            <lastmod>2023-12-15T09:22:07+00:00</lastmod>            <priority>0</priority>            <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/categorie/new</loc>
+            <lastmod>2023-12-15T09:22:07+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/formation</loc>
+            <lastmod>2023-12-15T09:22:07+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/home</loc>
+            <lastmod>2023-12-15T09:22:07+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/matiere</loc>
+            <lastmod>2023-12-15T09:22:07+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/matiere/new</loc>
+            <lastmod>2023-12-15T09:22:08+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/programme</loc>
+            <lastmod>2023-12-15T09:22:08+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/register</loc>
+            <lastmod>2023-12-15T09:22:08+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/login</loc>
+            <lastmod>2023-12-15T09:22:08+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/session</loc>
+            <lastmod>2023-12-15T09:22:08+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/session/new</loc>
+            <lastmod>2023-12-15T09:22:08+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/pastSessions</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/presentSessions</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/futurSessions</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/stagiaire</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/stagiaire/new</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/categorie/1</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/categorie/2</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/categorie/9</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/session/1</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/session/2</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/session/3</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+            <url>
+            <loc>http://localhost/session/10</loc>
+            <lastmod>2023-12-15T09:22:09+00:00</lastmod>                        <changefreq>monthly</changefreq>
+        </url>
+    </urlset>
