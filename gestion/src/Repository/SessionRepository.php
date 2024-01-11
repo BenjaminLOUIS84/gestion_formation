@@ -89,20 +89,20 @@ class SessionRepository extends ServiceEntityRepository
             $qB = $requete;                               
         
             $qB
-                ->select('s')                            // Sélectionner tous les stagiaires dont l'id est passé en paramêtre ('s') équivaut à table from
-                ->from('App\Entity\stagiaire', 's')     // Séléctionne moi toute les colones de stagiaire d'une session 
-                ->leftjoin('s.sessions', 'se')
-                ->where('se.id = :id')
+                ->select('st')                            // Sélectionner tous les stagiaires dont l'id est passé en paramêtre ('s') équivaut à table from
+                ->from('App\Entity\stagiaire', 'st')     // Séléctionne moi toute les colones de stagiaire d'une session 
+                ->leftjoin('st.sessions', 'session')
+                ->where('session.id = :id')
             ;
 
             $requete = $em->createQueryBuilder();       // Trouver les stagiaires non inscrits
             
             $requete
 
-                ->select('st')               
-                ->from('App\Entity\stagiaire', 'st') 
+                ->select('stagiaire')               
+                ->from('App\Entity\stagiaire', 'stagiaire') 
 
-                ->where($requete->expr()->NotIn('st.id', $qB->getDQL()))   // Les résultats de cette requête n'est pas dans le résultat de la requête qB                        //->where($sub->expr()->NotIn('st.id', $qb->getDQL()))
+                ->where($requete->expr()->NotIn('stagiaire.id', $qB->getDQL()))   // Les résultats de cette requête n'est pas dans le résultat de la requête qB                        //->where($sub->expr()->NotIn('st.id', $qb->getDQL()))
                 
                 ->setParameter(':id',$sessionId); 
 
@@ -126,17 +126,17 @@ class SessionRepository extends ServiceEntityRepository
             $qB = $requete;                               
         
             $qB
-                ->select('m')                            // Sélectionner tous les modules dont l'id est passé en paramêtre ('s') équivaut à table from
-                ->from('App\Entity\matiere', 'm')        // Séléctionne moi toute les colones de stagiaire d'une session 
-                ->leftjoin('m.programmes', 'p')
+                ->select('module')                            // Sélectionner tous les modules dont l'id est passé en paramêtre ('s') équivaut à table from
+                ->from('App\Entity\matiere', 'module')        // Séléctionne moi toute les colones de stagiaire d'une session 
+                ->leftjoin('module.programmes', 'p')
                 ->where('p.session = :id')              // Condition où l'Id de la session dans programme correspond à :id
             ;
 
             $requete = $em->createQueryBuilder();       // Trouver les modules non inscrits
             $requete
-                ->select('ma')               
-                ->from('App\Entity\matiere', 'ma') 
-                ->where($requete->expr()->NotIn('ma.id', $qB->getDQL()))   // Les résultats de cette requête n'est pas dans le résultat de la requête qB 
+                ->select('matiere')               
+                ->from('App\Entity\matiere', 'matiere') 
+                ->where($requete->expr()->NotIn('matiere.id', $qB->getDQL()))   // Les résultats de cette requête n'est pas dans le résultat de la requête qB 
                 ->setParameter(':id',$sessionId); 
                
                 $query = $requete->getQuery();          // Renvoyer le résultat
