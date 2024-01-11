@@ -11,7 +11,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    background: linear-gradient(-135deg, rgba(255, 255, 255, 0.1),rgba(63, 66, 71, 1));
+    background: linear-gradient(-135deg, rgba(255, 255, 255, 0.1), rgba(63, 66, 71, 1));
 }
 
 main {
@@ -38,8 +38,8 @@ td a:hover {
     display: flex;
     margin: auto;
     position: absolute;
-    top:5px;
-    right:5px;
+    top: 5px;
+    right: 5px;
     width: 5%;
 }
 
@@ -57,11 +57,14 @@ td a:hover {
 
 footer {
     background: linear-gradient(-135deg, rgba(255, 255, 255, 0.1), rgba(63, 66, 71, 1));
-    color: #f9b601;
     text-align: center;
     align-items: center;
     margin-top: 320px;
     padding: 20px;
+}
+
+footer a {
+    color: black;
 }
 
 /*FORMULAIRES*/
@@ -94,7 +97,7 @@ form {
 }
 
 label {
-    color:  #212529;
+    color: #212529;
 }
 
 input {
@@ -220,3 +223,120 @@ h3 {
 .mb-3 a:hover {
     color: #212529;
 }
+
+/*///////////////////////////////////////RESPONSIVE/////////////////////////////////////////*/
+
+/*////////////////INSPECTER - BUREAU - PAGE WEB///////////////////*/
+@media only screen and (max-width: 1196px) {}
+
+/*TABLETTE & TELEPHONE//////////////////////////////////////////////////////*/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+
+    /*////////////////////////////ACCUEIL///////////////////////////*/
+
+    .fond {
+        margin: auto;
+        object-fit: none;
+        overflow: visible;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.9em;
+        color: white;
+    }
+
+    a {
+        font-size: 1.9em;
+        padding: 1px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 900px;
+    }
+
+    footer a {
+        color: #f9b601;
+        font-weight: bold;
+    }
+
+    /*////////////////////////////INSCRIPTION & CONNEXION///////////////////////////*/
+
+    form {
+        font-size: 2.5em;
+        gap: 20px;
+    }
+
+    label {
+        color: white;
+    }
+
+    input {
+        height: 60px;
+        /* box-sizing: unset; */
+    }
+
+    .form-control:focus{
+        font-size: 0.7em;
+    }
+
+    #registration_form_agreeTerms {
+        width: 75px;
+    }
+
+    .container {
+        margin-top: 60px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #valid {
+        font-size: 1em;
+    }
+
+    #validco {
+        font-size: 0.8em;
+        margin-top: 60px;
+    }
+
+    .formAddCo {
+        display: contents;
+    }
+
+    .co {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.2em;
+    }
+
+    .co h1 {
+        font-size: 2em;
+    }
+
+}
+
+/*TELEPHONE//////////////////////////////////////////////////////*/
+
+@media (min-width: 0) and (max-width: 768px) {}

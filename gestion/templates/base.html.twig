@@ -21,14 +21,14 @@
         {# Créer une barre de navigation pour basculer d'une page à l'autre #}
         <nav>
             {# Si un administrateur est connecté alors unr option PARAMETRES s'affiche en plus dans le menu #}
-            {% if is_granted('ROLE_ADMIN') %}
+            {# {% if is_granted('ROLE_ADMIN') %}
                 <a href="">PARAMETRES</a>
-            {% endif %}
+            {% endif %} #}
 
             {# Si un user est connecté alors unr option PROFIL s'affiche en plus dans le menu #}
-            {% if is_granted('ROLE_USER') %}
+            {# {% if is_granted('ROLE_USER') %}
                 <a href="">PROFIL</a>
-            {% endif %}
+            {% endif %} #}
 
             {# Si un utilisateur est connecté alors les options ci dessous s'affichent dans le menu #}
             {% if app.user %}
@@ -62,7 +62,8 @@
         </main>
 
         <footer>
-            <p>&copy; 2023 - ELAN FORMATION - <a href="">CGU</a> - <a href="">Mentions légales</a></p>
+            <p>&copy; 2023 - ELAN FORMATION - Fait par Benjamin LOUIS</p>
+                <a href="">CGU</a> 
         </footer>
 
         {% block javascripts %}

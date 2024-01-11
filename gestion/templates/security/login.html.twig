@@ -10,24 +10,26 @@
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
-        <h1>CONNEXION</h1>
-
-        <div class="formAddCo">
-
-            <label for="inputEmail">Adresse mail</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-            <label for="inputPassword">Mot de passe</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-            <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-            >
-        
-            {# <button class="btn btn-lg btn-primary" type="submit"> #}
-            <button class="btn btn-dark" type="submit">
-                Valider
-            </button>
+        <div class="co">
+            <h1>CONNEXION</h1>
             
+            <div class="formAddCo">
+                
+                <label for="inputEmail">Adresse mail</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                <label for="inputPassword">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                
+                <input type="hidden" name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}"
+                >
+                
+                {# <button class="btn btn-lg btn-primary" type="submit"> #}
+                <button class="btn btn-dark" id="validco" type="submit">
+                    Valider
+                </button>
+                
+            </div>
         </div>
 
     </form>
