@@ -1,5 +1,9 @@
 /*PARAMETRES DE BASE*/
 
+.menuBurger {
+    display: none;
+}
+
 h1,
 h2 {
     font-family: fantasy;
@@ -38,8 +42,8 @@ td a:hover {
     display: flex;
     margin: auto;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 2px;
+    right: 15px;
     width: 5%;
 }
 
@@ -224,6 +228,10 @@ h3 {
     color: #212529;
 }
 
+#validco {
+    margin-top: 20px;
+}
+
 /*///////////////////////////////////////RESPONSIVE/////////////////////////////////////////*/
 
 /*////////////////INSPECTER - BUREAU - PAGE WEB///////////////////*/
@@ -256,16 +264,29 @@ h3 {
     }
 
     a {
-        font-size: 1.9em;
+        font-size: 3em;
         padding: 1px;
     }
 
     nav {
-        justify-content: center;
+        display: none;
+    }
+
+    .menuBurger {
+        display: flex;
     }
 
     .logo {
-        display: none;
+        width: 10%;
+        top: 15px;
+        right: 15px;
+        filter: opacity(0.5);
+    }
+    .logoElan {
+        width: 100%;
+        top: 150px;
+        right: 150px;
+        
     }
 
     footer {
@@ -295,7 +316,7 @@ h3 {
         /* box-sizing: unset; */
     }
 
-    .form-control:focus{
+    .form-control:focus {
         font-size: 0.7em;
     }
 

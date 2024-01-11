@@ -32,25 +32,30 @@
 
             {# Si un utilisateur est connecté alors les options ci dessous s'affichent dans le menu #}
             {% if app.user %}
-
+                
                 <a href="{{ path ('app_home') }}">ACCUEIL</a>
                 <a href="{{ path ('app_categorie') }}">CATEGORIES</a>
                 <a href="{{ path ('app_matiere') }}">MODULES</a>
                 <a href="{{ path ('app_session') }}">SESSIONS</a>
                 <a href="{{ path ('app_stagiaire') }}">STAGIAIRES</a>
                 <a href="{{ path ('app_logout') }}">DECONNEXION</a>
-                <img class="logo" src="{{ asset('img/logoElan.jpg') }}" alt="logo Elan Formation">
-
-             {% else %}
+                <a href="https://elan-formation.fr/accueil"><img class="logoElan" src="{{ asset('img/logoElan.jpg') }}" alt="logo Elan Formation" title="Découvrir le centre de formation"></a>
+            
+            {% else %}
                 
                 <a href="{{ path ('app_home') }}">ACCUEIL</a>
                 <a href="{{ path ('app_register') }}">INSCRIPTION</a>
                 <a href="{{ path ('app_login')}}">CONNEXION</a>
-                <img class="logo" src="{{ asset('img/logoElan.jpg') }}" alt="logo Elan Formation">
-
+                <a href="https://elan-formation.fr/accueil"><img class="logo" src="{{ asset('img/logoElan.jpg') }}" alt="logo Elan Formation" title="Découvrir le centre de formation"></a>
+            
             {% endif %}
-           
+                
+            
         </nav>
+
+        <div class="menuBurger">
+            <a href="{{ path ('app_menu') }}"><img class="logo" src="{{ asset('img/burger.png') }}" alt="logo menu burger"></a>
+        </div>
         
         {# Utiliser container (fonctionnalité Bootstrap) #}
         <main class="container">
@@ -63,7 +68,7 @@
 
         <footer>
             <p>&copy; 2023 - ELAN FORMATION - Fait par Benjamin LOUIS</p>
-                <a href="">CGU</a> 
+                <a href="" title="Condition Générales d'Utilisation">CGU</a> 
         </footer>
 
         {% block javascripts %}
