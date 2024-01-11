@@ -33,16 +33,19 @@
 
             {# Seul l'admin peut modifier ou supprimer une catégorie #}
             {% if is_granted('ROLE_ADMIN') %}
-                <a class="btn btn-dark" href="{{ path ('edit_categorie', {id: categorie.id}) }}">MODIFIER</a>
-                <a class="btn btn-dark" href="{{ path ('delete_categorie', {id: categorie.id}) }}">SUPPRIMER</a>
+                <a class="btn btn-dark" id="valid" href="{{ path ('edit_categorie', {id: categorie.id}) }}">MODIFIER</a>
+                <a class="btn btn-dark" id="valid" href="{{ path ('delete_categorie', {id: categorie.id}) }}">SUPPRIMER</a>
             {% endif %}
 
         </div>
+
         
         <figure>
             <img class="fond" src="{{asset('img/categories.jpg')}}" alt="Rangées de livres dans une bibliothèque ">
         </figure>
 
     {% endfor %}
+
+    <a href="{{ path ('app_menu') }}">RETOUR</a>
 
 {% endblock %}
