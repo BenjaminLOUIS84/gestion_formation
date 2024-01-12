@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+// use Doctrine\Common\Collections\Collection;
+// use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -37,6 +39,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 100, unique: true)] // Pour spécifier que le pseudo est unique (à ajouter)
     private ?string $pseudo = null;
+
+    // #[ORM\OneToMany(mappedBy: 'user', targetEntity: Stagiaire::class)]
+    // private Collection $stagiaires;
+
+    // public function __construct()
+    // {
+    //     $this->stagiairess = new ArrayCollection();
+    // }
 
     public function getId(): ?int
     {
@@ -131,4 +141,43 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    ////////////////////////////////////////////////////////////////////////
+    // Il est possible de créer d'autres fonctions ici
+
+    // public function __toString() {          // Pour faciliter l'affichage des autres informations d'une entité
+
+    //     return $this->Pseudo. " ";          // L'élément affiché de la liste des collections est seulement l'intitule
+    // } 
+
+    // /**
+    // * @return Collection<int, Stagiaire>
+    // */
+    // public function getStagiaires(): Collection
+    // {
+    //     return $this->stagiaires;
+    // }
+
+    // public function addStagiaire(Stagiaire $stagiaire): static
+    // {
+    //     if (!$this->stagiaires->contains($stagiaire)) {
+    //         $this->stagiaires->add($stagiaire);
+    //         $stagiaire->setUser($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeStagiaire(Stagiaire $stagiaire): static
+    // {
+    //     if ($this->stagiaires->removeElement($stagiaire)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($stagiaire->getUser() === $this) {
+    //             $stagiaire->setUser(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
 }

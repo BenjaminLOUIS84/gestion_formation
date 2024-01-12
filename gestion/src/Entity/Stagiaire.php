@@ -40,6 +40,10 @@ class Stagiaire
     #[ORM\ManyToMany(targetEntity: Session::class, inversedBy: 'stagiaires')]
     private Collection $sessions;
 
+    // #[ORM\ManyToOne(inversedBy: 'stagiaires')]
+    // #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')] // Pour rendre l'ID user NULL lorsque celui-ci n'éxiste plus (Permet d'anonymiser les commentaires de l'utilisateur)
+    // private ?User $user = null;
+
     public function __construct()
     {
         $this->sessions = new ArrayCollection();
@@ -176,7 +180,17 @@ class Stagiaire
         return $interval->format("%Y");
     }   
 
+    // public function getUser(): ?User
+    // {
+    //     return $this->user;
+    // }
 
+    // public function setUser(?User $user): static
+    // {
+    //     $this->user = $user;
+
+    //     return $this;
+    // }
 
 
 }

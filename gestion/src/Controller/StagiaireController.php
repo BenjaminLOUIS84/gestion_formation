@@ -33,11 +33,22 @@ class StagiaireController extends AbstractController                            
     public function delete(Stagiaire $stagiaire, EntityManagerInterface $entityManager): Response   // Créer une fonction delete() dans le controller pour supprimer un stagiaire
 
     {                                                                               // Importer la classe Stagiaire
-        $entityManager->remove($stagiaire);                                         // Supprime un stagiaire 
-        $entityManager->flush();                                                    // Exécute l'action DANS LA BDD
+        if (!$this->isGranted('ROLE_ADMIN')) {                          // Permet d'empécher l'accès à cette action si ce n'est pas un admin
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
 
-        return $this->redirectToRoute('app_stagiaire');                             // Rediriger vers la liste des stagiaires
-       
+        // if($this->getUser() == $stagiaire->getUser() || $this->isGranted('ROLE_ADMIN') == true)                                 
+        // {
+
+            $entityManager->remove($stagiaire);                                         // Supprime un stagiaire 
+            $entityManager->flush();                                                    // Exécute l'action DANS LA BDD
+
+            return $this->redirectToRoute('app_stagiaire');                             // Rediriger vers la liste des stagiaires
+        
+        // }else{
+        //     throw $this->createAccessDeniedException('Accès non autorisé');             // Sinon on interdit l'accès
+        // }
+
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,15 +57,32 @@ class StagiaireController extends AbstractController                            
     #[Route('/stagiaire/new', name: 'new_stagiaire')]         // Reprendre la route en ajoutant /new à l'URL et en changeant le nom du name
     #[Route('/stagiaire/{id}/edit', name: 'edit_stagiaire')]  // Reprendre la route en ajoutant /{id}/edit à l'URL et en changeant le nom du name
 
-    public function new_edit(Stagiaire $stagiaire = null, Request $request, EntityManagerInterface $entityManager): Response   
+    public function new_edit(
+
+        Stagiaire $stagiaire = null, 
+        Request $request, 
+        EntityManagerInterface $entityManager
+        
+    ): Response  
+     
     // Créer une fonction new() dans le controller pour permettre l'ajout de stagiaires et modifier celle-ci en new_edit pour permettre la modfication ou à défaut la création
-    {          
-        if(!$stagiaire){                                      // S'il n'y a pas de stagiaires à modifier alors créer un nouveau stagiaire                                  
-        $stagiaire = new Stagiaire();                         // Après avoir importé la classe Request Déclarer un nouveau stagiaire
-        }
+    {    
+        // if (!$this->isGranted('ROLE_ADMIN')) {                          // Permet d'empécher l'accès à cette action si ce n'est pas un admin
+        //     throw $this->createAccessDeniedException('Accès non autorisé');
+        // }
 
-        $form = $this->createForm(StagiaireType :: class, $stagiaire);  // Créer un nouveau formulaire avec la méthode createForm() et importer le classe StagiaireType
+        // if($this->getUser() == $stagiaire->getUser() || $this->isGranted('ROLE_ADMIN') == true)                                 
+        // {
+              
+            if(!$stagiaire){                                      // S'il n'y a pas de stagiaires à modifier alors créer un nouveau stagiaire                                  
+            $stagiaire = new Stagiaire();                         // Après avoir importé la classe Request Déclarer un nouveau stagiaire
+            }
 
+            $form = $this->createForm(StagiaireType :: class, $stagiaire);  // Créer un nouveau formulaire avec la méthode createForm() et importer le classe StagiaireType
+
+        // }else{
+        //     throw $this->createAccessDeniedException('Accès non autorisé');             // Sinon on interdit l'accès
+        // }
 
         //////////////////////////////////////////////////////////////////////////
         //                                                                  GERER LE TRAITEMENT EN BDD

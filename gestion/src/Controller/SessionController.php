@@ -34,7 +34,11 @@ class SessionController extends AbstractController                              
 
     public function delete(Session $session, EntityManagerInterface $entityManager): Response   // Créer une fonction delete() dans le controller pour supprimer une session
 
-    {                                                                              
+    {     
+        if (!$this->isGranted('ROLE_ADMIN')) {                          // Permet d'empécher l'accès à cette action si ce n'est pas un admin
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
+
         $entityManager->remove($session);                                         // Supprime une session
         $entityManager->flush();                                                  // Exécute l'action DANS LA BDD
 
@@ -52,6 +56,10 @@ class SessionController extends AbstractController                              
     // Créer une fonction new() dans le controller pour permettre l'ajout de session et modifier celle-ci en new_edit pour permettre la modfication ou à défaut la création
 
     {
+        if (!$this->isGranted('ROLE_ADMIN')) {                          // Permet d'empécher l'accès à cette action si ce n'est pas un admin
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
+        
         if(!$session){                                            // S'il n'ya pas de session à modifier alors en créer une nouvelle
             $session = new Session();                             // Après avoir importé la classe Request Déclarer une nouvelle session
         }

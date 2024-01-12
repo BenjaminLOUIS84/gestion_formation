@@ -38,7 +38,11 @@ class MatiereController extends AbstractController                              
 
     public function delete(Matiere $matiere, EntityManagerInterface $entityManager): Response   // Créer une fonction delete() dans le controller pour supprimer une matiere
 
-    {                                                                               
+    {      
+        if (!$this->isGranted('ROLE_ADMIN')) {                          // Permet d'empécher l'accès à cette action si ce n'est pas un admin
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
+                                                                                 
         $entityManager->remove($matiere);                                       // Supprime une matiere
         $entityManager->flush();                                                // Exécute l'action DANS LA BDD
         return $this->redirectToRoute('app_matiere');                           // Rediriger vers la liste des modules
@@ -53,6 +57,10 @@ class MatiereController extends AbstractController                              
     public function new(Matiere $matiere = null, Request $request, EntityManagerInterface $entityManager): Response   
     // Créer une fonction new() dans le controller pour permettre l'ajout de matière et modifier celle-ci en new_edit pour permettre la modfication ou à défaut la création
     {
+        if (!$this->isGranted('ROLE_ADMIN')) {                          // Permet d'empécher l'accès à cette action si ce n'est pas un admin
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
+
         if(!$matiere){                                      // S'il n'ya pas de matière à modifier alors en créer une nouvelle
             $matiere = new Matiere();                       // Après avoir importé la classe Request Déclarer une nouvelle matière
         }
