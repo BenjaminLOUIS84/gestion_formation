@@ -93,12 +93,12 @@ class SessionController extends AbstractController                              
     {         
         $id = $sessionRepository->find($session->getId());                      // Récupérer l'Id de la session pour que la variable ci dessous
         // $nonInscrits = $sessionRepository->findStagiairesNonInscrit($id);       // puisse trouver les non inscrits d'une session 
-        $nonProgrammes = $sessionRepository->findMatiereNonProgramme($id);      // Afficher la liste des modules non programmé
+        // $nonProgrammes = $sessionRepository->findMatiereNonProgramme($id);      // Afficher la liste des modules non programmé
 
         return $this->render('session/show.html.twig', [                        // Pour faire le lien entre le controller et la vue show.html.twig (il faut donc la créer dans le dossier session)
             'session' => $session,                                              
             // 'nonInscrits' => $nonInscrits,
-            'nonProgrammes' => $nonProgrammes    
+            // 'nonProgrammes' => $nonProgrammes    
 
         ]);
     }   

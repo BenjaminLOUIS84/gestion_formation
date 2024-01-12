@@ -128,8 +128,8 @@ class SessionRepository extends ServiceEntityRepository
             $qB
                 ->select('module')                            // Sélectionner tous les modules dont l'id est passé en paramêtre ('s') équivaut à table from
                 ->from('App\Entity\matiere', 'module')        // Séléctionne moi toute les colones de stagiaire d'une session 
-                ->leftjoin('module.programmes', 'p')
-                ->where('p.session = :id')              // Condition où l'Id de la session dans programme correspond à :id
+                ->leftjoin('module.programmes', 'programme')
+                ->where('programme.session = :id')              // Condition où l'Id de la session dans programme correspond à :id
             ;
 
             $requete = $em->createQueryBuilder();       // Trouver les modules non inscrits
