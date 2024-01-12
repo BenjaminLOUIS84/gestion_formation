@@ -333,6 +333,7 @@ h3 {
 
     .required {
         text-align: center;
+        display: block;
     }
 
     .block {
@@ -341,7 +342,7 @@ h3 {
         margin-right: 110px;
     }
 
-    #programme-fields-list{
+    #programme-fields-list {
         font-size: 0.5em;
         padding-right: 120px;
     }

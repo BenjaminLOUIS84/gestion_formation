@@ -140,6 +140,18 @@
 
     </table> #}
 
+    {% for futurSession in futurSessions %}
+
+        {% if futurSession %}
+
+            <a class="btn btn-dark" href="{{ path ('new_stagiaire') }}">S'inscrire</a>
+
+        {% else %}
+
+        {% endif %}
+
+    {% endfor %}
+
     <a class="btn btn-dark" href="{{ path ('app_session') }}">RETOUR</a>
 
     <figure>

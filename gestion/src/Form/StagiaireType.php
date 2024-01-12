@@ -27,6 +27,15 @@ class StagiaireType extends AbstractType
             ->add('date_naissance', DateType::class, [                      // Ajouter après class ['widget' => 'single_text', 'attr' =>['class' =>'form-control']] Propiété BootStrap pour améliorer l'affichage de la date
             'widget' =>'single_text', 'attr' =>['class' =>'form-control']] )
             
+            ->add('sessions', EntityType::class,[
+                'class' => Session::class,
+                'label' => 'Choisissez une formation',
+                // 'choice_label' => 'id',
+                'multiple' => true,
+                // 'expanded' => true,
+                'attr' =>['class' =>'form-control']
+            ])
+
             ->add('valider', SubmitType::class, [                          // Ajouter directement le bouton submit ici
             'attr' =>['class' => 'btn btn-dark']])                      // Ajouter après class ['attr' =>['class' =>'btn btn-succes']] Pour améliorer le bouton
         ;
