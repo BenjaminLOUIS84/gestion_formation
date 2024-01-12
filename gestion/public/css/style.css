@@ -164,6 +164,8 @@ select {
 
 .periode {
     display: flex;
+    width: max-content;
+    padding-left: 30px;
 }
 
 /*STUDENTS*/

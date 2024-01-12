@@ -50,7 +50,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href="{{ path ('show_session', {id: session.id}) }}">{{ session.formation }}</a><br>
+                        <a class="btn btn-dark" href="{{ path ('show_session', {id: session.id}) }}">{{ session.formation }}</a><br>
 
                         {% if is_granted('ROLE_ADMIN') %}
                             <a class="btn btn-dark" href="{{ path ('edit_session', {id: session.id}) }}">MODIFIER</a>
