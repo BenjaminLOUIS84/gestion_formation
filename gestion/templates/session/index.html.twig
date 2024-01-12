@@ -37,40 +37,43 @@
         {# BDD L'élément de la collection #}
         {# Créer une boucle for #}
         {% for session in sessions %}
+            {% if session.dateFin > date("01-01-2024")  %}
+                {# BDD nom de l'objet . pour accéder à un attribu précis #}
+                {# BDD on utilise le nom de Session.php dans Entity plutôt que celui de la BDD #}
+                {# {{session.formation}}<br> #}
+                
+                {# Grâce à la fonction __toString() crée dans Session.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
 
-            {# BDD nom de l'objet . pour accéder à un attribu précis #}
-            {# BDD on utilise le nom de Session.php dans Entity plutôt que celui de la BDD #}
-            {# {{session.formation}}<br> #}
+                {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
+                placer lien {{ path ('show_session') }} dans le href et ajouter l'ID pour récupérer l'objet session #}
+                
+                <tbody>
+                    <tr>
+                        <td>
+                            <a class="btn btn-dark" href="{{ path ('show_session', {id: session.id}) }}">{{ session.formation }}</a><br>
 
-            {# Grâce à la fonction __toString() crée dans Session.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a class="btn btn-dark" href="{{ path ('edit_session', {id: session.id}) }}">MODIFIER</a>
+                                <a class="btn btn-dark" href="{{ path ('delete_session', {id: session.id}) }}">SUPPRIMER</a>
+                                {% endif %}
+                            
+                            </td>
+                            
+                        <td>{{session.dateDebut | date("d-m-Y")}}</td>
+                        <td>{{session.dateFin | date("d-m-Y")}}</td>
+                        <td>{{session.nbMax}}</td>
 
-            {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
-            placer lien {{ path ('show_session') }} dans le href et ajouter l'ID pour récupérer l'objet session #}
-            
-            <tbody>
-                <tr>
-                    <td>
-                        <a class="btn btn-dark" href="{{ path ('show_session', {id: session.id}) }}">{{ session.formation }}</a><br>
-
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <a class="btn btn-dark" href="{{ path ('edit_session', {id: session.id}) }}">MODIFIER</a>
-                            <a class="btn btn-dark" href="{{ path ('delete_session', {id: session.id}) }}">SUPPRIMER</a>
-                        {% endif %}
+                        {# Réutilisable (CF Session.php créer dans cette entité la fonction getNbInscrit()) Pour calculer le nombre de place restante  #}
+                        {# <td>{{session.nbMax - session.nbInscrit}}</td> #}
                         
-                    </td>
-
-                    <td>{{session.dateDebut | date("d-m-Y")}}</td>
-                    <td>{{session.dateFin | date("d-m-Y")}}</td>
-                    <td>{{session.nbMax}}</td>
-
-                    {# Réutilisable (CF Session.php créer dans cette entité la fonction getNbInscrit()) Pour calculer le nombre de place restante  #}
-                    {# <td>{{session.nbMax - session.nbInscrit}}</td> #}
-                    
-                    {# Méthode Ponctuelle avec le filtre length #}
-                    <td>{{session.nbMax - session.stagiaires | length }}</td>
-
-                </tr>  
-            </tbody>
+                        {# Méthode Ponctuelle avec le filtre length #}
+                        <td>{{session.nbMax - session.stagiaires | length }}</td>
+                        
+                    </tr>  
+                </tbody>
+            {% else %}
+            
+            {% endif %}
 
         {% endfor %}
 
