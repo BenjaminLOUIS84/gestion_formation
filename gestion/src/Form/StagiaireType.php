@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Session;
 use App\Entity\Stagiaire;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -29,11 +31,25 @@ class StagiaireType extends AbstractType
             
             ->add('sessions', EntityType::class,[
                 'class' => Session::class,
+                
+                // Pour afficher uniquement les sessions disponibles
+                'query_builder' => function (EntityRepository $er): QueryBuilder {
+                    return $er->createQueryBuilder('session')
+                    ->where('session.date_debut > CURRENT_DATE()');
+
+                    // ->orderBy('session.date_fin', 'DESC'); Afficher suivant un ordre précis
+                },
+
                 'label' => 'Choisissez une formation',
-                // 'choice_label' => 'id',
                 'multiple' => true,
-                // 'expanded' => true,
-                'attr' =>['class' =>'form-control']
+                'attr' =>['class' =>'form-control'],
+
+                // 'choice_label' => function (Session $session): string {
+                //     return $session->getFormation()->getIntitule();
+                // },
+                // 'expanded' => true
+
+                
             ])
 
             ->add('valider', SubmitType::class, [                          // Ajouter directement le bouton submit ici
