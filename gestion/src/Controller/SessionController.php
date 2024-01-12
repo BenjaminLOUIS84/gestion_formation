@@ -19,7 +19,7 @@ class SessionController extends AbstractController                              
 
     public function index(SessionRepository $sessionRepository): Response       // Pour afficher la liste des Sessions insérer dans la fonction index() SessionRepository $sessionRepository
     {                                                                           // Importer la classe SessionRepository avec un click droit
-        $sessions = $sessionRepository->findBy([], ["id" => "ASC"]);            // Pour récupérer la liste des sessions classées par ordre de création (id)
+        $sessions = $sessionRepository->findBy([], ["date_debut" => "DESC"]);            // Pour récupérer la liste des sessions classées par ordre de création (id)
         
         return $this->render('session/index.html.twig', [                       // render() Permet de faire le lien entre le controller et la view 
             

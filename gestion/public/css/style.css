@@ -165,7 +165,6 @@ select {
 .periode {
     display: flex;
     width: max-content;
-    padding-left: 30px;
 }
 
 /*STUDENTS*/
@@ -324,7 +323,7 @@ h3 {
     /*////////////////////////////MODULES///////////////////////////*/
 
     .table {
-        /* font-size: 2em; */
+        font-size: 1.5em;
         margin-top: 40px;
     }
 
@@ -383,13 +382,17 @@ h3 {
 
     .container {
         margin-top: 100px;
-        font-size: 1.2em;
+        /* font-size: 1.2em; */
     }
 
     /*////////////////////////////STAGIAIRES///////////////////////////*/
 
     .fiche {
         font-size: 1.5em;
+    }
+
+    table .btn-dark {
+        font-size: 1.2em;
     }
 
     .btn-dark {
