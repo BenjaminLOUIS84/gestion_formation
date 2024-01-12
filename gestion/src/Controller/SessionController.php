@@ -22,7 +22,6 @@ class SessionController extends AbstractController                              
         $sessions = $sessionRepository->findBy([], ["date_debut" => "DESC"]);            // Pour récupérer la liste des sessions classées par ordre de création (id)
         
         return $this->render('session/index.html.twig', [                       // render() Permet de faire le lien entre le controller et la view 
-            
             'sessions' => $sessions                                             // Pour passer la variable $sessions en argument 'sessions'
         ]);                                                                     // Pour afficher cet argument dans la vue il faut créer un echo représenté par {{ }}
     }                                                                           // Dans le fichier index.html.twig du dossier session
