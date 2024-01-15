@@ -46,6 +46,7 @@ class InscriptionStageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {         // Si le formulaire soumis est valide alors
             
             $stagiaire = $form->getData();                      // Récupérer les informations du nouveau stagiaire 
+            $session = $form->getData();                      // Récupérer les informations du nouveau stagiaire 
             //prepare PDO
 
             $email = (new TemplatedEmail())
@@ -53,7 +54,7 @@ class InscriptionStageController extends AbstractController
             ->to('benlouisdevweb@gmail.com')
             ->subject('Demande d\'admission en formation')
             ->htmlTemplate('email/inscription.html.twig')
-            ->context(compact('stagiaire'));
+            ->context(compact('stagiaire','session'));
 
             $mailer->send($email);
 
