@@ -19,10 +19,10 @@
 
         {# Affiche le titre de la Formation #}
         <a class="btn btn-dark" href="{{ path ('show_formation', {id: formation.id}) }}">{{ formation }}</a><br>
-        
+
     {% endfor %}
 
-    <a class="btn btn-dark" href="{{ path ('app_menu') }}">RETOUR</a>
+    <a id="back" class="btn btn-dark" href="{{ path ('app_menu') }}">RETOUR</a>
 
     <figure>
         <img class="fond" src="{{asset('img/programme.png')}}" alt="Ordinateurs, clavier et appareil photo">
