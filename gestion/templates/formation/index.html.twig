@@ -15,38 +15,12 @@
 
     </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Intitulé</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        
-        {# BDD L'élément de la collection #}
-        {# Créer une boucle for #}
-        
-        {% for formation in formations %}
-           
-            <tbody>
-                <tr>
-                    <td>
-                        <a class="btn btn-dark" href="{{ path ('show_formation', {id: formation.id}) }}">{{ formation }}</a><br>
+    {% for formation in formations %}
 
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <a class="btn btn-dark" href="{{ path ('edit_formation', {id: formation.id}) }}">MODIFIER</a>
-                            <a class="btn btn-dark" href="{{ path ('delete_formation', {id: formation.id}) }}">SUPPRIMER</a>
-                        {% endif %}
-                        
-                    </td>
-                        
-                    <td>{{formation.description}}</td>
-                </tr>  
-            </tbody>
+        {# Affiche le titre de la Formation #}
+        <a class="btn btn-dark" href="{{ path ('show_formation', {id: formation.id}) }}">{{ formation }}</a><br>
         
-        {% endfor %}
-
-    </table>
+    {% endfor %}
 
     <a class="btn btn-dark" href="{{ path ('app_menu') }}">RETOUR</a>
 

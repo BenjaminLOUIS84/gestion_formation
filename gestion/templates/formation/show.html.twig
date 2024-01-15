@@ -6,10 +6,29 @@
 
     <h1>DETAIL</h1>
     
-    {# Affiche le titre de la Formation #}
-    <h2>{{formation}}</h2>
-    {# Affiche la déscritpion du titre #}
-    <p>{{formation.description}}</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Intitulé</th>
+                <th>Description</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+               
+        <tbody>
+            <tr>
+                <td>{{ formation }}</td>   
+                <td>{{ formation.description }}</td>
+                <td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-dark" href="{{ path ('edit_formation', {id: formation.id}) }}">MODIFIER</a>
+                        <a class="btn btn-dark" href="{{ path ('delete_formation', {id: formation.id}) }}">SUPPRIMER</a>
+                    {% endif %}
+                </td>
+            </tr>  
+        </tbody>
+
+    </table>
 
     <a class="btn btn-dark" href="{{ path ('app_formation') }}">RETOUR</a>
 
