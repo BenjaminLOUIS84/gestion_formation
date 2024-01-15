@@ -4,23 +4,54 @@
 
 {% block body %}
 
-    <h1>FORMATIONS</h1>
+    <div class="addStudent">
 
-    {# BDD L'élément de la collection #}
-    {# Créer une boucle for #}
-    {% for formation in formations %}
+        <h1>FORMATIONS</h1>
 
-        {# BDD nom de l'objet . pour accéder à un attribu précis #}
-        {# BDD on utilise le nom de Formation.php dans Entity plutôt que celui de la BDD #}
-        {{formation}}<br>
+        {% if is_granted('ROLE_ADMIN') %}
+            {# Lien pour ajouter une nouvelle formation #}
+            <a href="{{ path ('new_formation') }}">AJOUTER</a>
+        {% endif %}
 
-        {# Grâce à la fonction __toString() crée dans Formation.php de Entity, la ligne ci dessous remplace la ligne ci dessus #}
+    </div>
 
-        {# Pour rendre les éléments de la liste cliquable il suffit de mettre ceux-ci dans une balise a
-        placer lien {{ path ('show_formation') }} dans le href et ajouter l'ID pour récupérer l'objet formation #}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Intitulé</th>
+                <th>Description</th>
+            </tr>
+        </thead>
         
-        {# <a href="{{ path ('show_formation', {id: formation.id}) }}">{{ formation }}</a><br> #}
+        {# BDD L'élément de la collection #}
+        {# Créer une boucle for #}
+        
+        {% for formation in formations %}
+           
+            <tbody>
+                <tr>
+                    <td>
+                        <a class="btn btn-dark" href="{{ path ('show_formation', {id: formation.id}) }}">{{ formation }}</a><br>
 
-    {% endfor %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="btn btn-dark" href="{{ path ('edit_formation', {id: formation.id}) }}">MODIFIER</a>
+                            <a class="btn btn-dark" href="{{ path ('delete_formation', {id: formation.id}) }}">SUPPRIMER</a>
+                        {% endif %}
+                        
+                    </td>
+                        
+                    <td>{{formation.description}}</td>
+                </tr>  
+            </tbody>
+        
+        {% endfor %}
+
+    </table>
+
+    <a class="btn btn-dark" href="{{ path ('app_menu') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/programme.png')}}" alt="Ordinateurs, clavier et appareil photo">
+    </figure>
 
 {% endblock %}

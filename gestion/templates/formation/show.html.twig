@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la Formation{% endblock %}
+
+{% block body %}
+
+    <h1>DETAIL</h1>
+    
+    {# Affiche le titre de la Formation #}
+    <h2>{{formation}}</h2>
+    {# Affiche la déscritpion du titre #}
+    <p>{{formation.description}}</p>
+
+    <a class="btn btn-dark" href="{{ path ('app_formation') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/programme.png')}}" alt="Ordinateurs, clavier et appareil photo">
+    </figure>
+
+{% endblock %}
+
