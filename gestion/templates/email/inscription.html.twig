@@ -2,13 +2,15 @@
 
 <h2>Nouveau stagiaire</h2><br>
 
-<p>Nom:{{stagiaire.nom|raw}}</p>
-<p>Prenom:{{stagiaire.prenom|raw}}</p>
-<p>Genre:{{stagiaire.genre|raw}}</p>
-<p>Ville:{{stagiaire.ville|raw}}</p>
-<p>Mail:{{stagiaire.mail|raw}}</p>
-<p>Téléphone:{{stagiaire.telephone|raw}}</p>
-<p>Date de Naissance:{{stagiaire.dateNaissance|date("d-m-Y")|raw}}</p><br>
+<p>Nom: {{stagiaire.nom|raw}}</p>
+<p>Prenom: {{stagiaire.prenom|raw}}</p>
+<p>Genre: {{stagiaire.genre|raw}}</p>
+<p>Ville: {{stagiaire.ville|raw}}</p>
+<p>Mail: {{stagiaire.mail|raw}}</p>
+<p>Téléphone: {{stagiaire.telephone|raw}}</p>
+<p>Date de Naissance: {{stagiaire.dateNaissance|date("d-m-Y")|raw}}</p><br>
+
+<p>Formation souhaitée: {{session|raw}}</p>
 
 <br><p>Connectez vous pour ajouter ce stagiaire</p><br>
 <a href="{{ absolute_url(path('app_login')) }}">Connexion</a>
