@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande d'admission{% endblock %}
+
+{% block body %}
+
+    <h1>Devenir Stagiaire</h1>
+
+    <a class="btn btn-dark" href="{{ path ('new_inscription_stage') }}">Accéder au formulaire</a>
+
+    <a class="btn btn-dark" href="{{ path ('app_session') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/stagiaire.jpg')}}" alt="Stagiaires devant l'entrée">
+    </figure>   
+
+{% endblock %}

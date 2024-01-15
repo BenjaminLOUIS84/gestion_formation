@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande d'inscription{% endblock %}
+
+{% block body %}
+
+    <h1>INSCRIPTION</h1>
+
+        <div class="formAdd">
+      
+            {{form_start(formAddInscriptionStage)}}
+
+                {{ form_row(formAddInscriptionStage.nom) }}
+                {{ form_row(formAddInscriptionStage.prenom) }}
+                {{ form_row(formAddInscriptionStage.genre) }}
+                {{ form_row(formAddInscriptionStage.ville) }}
+                {{ form_row(formAddInscriptionStage.mail) }}
+                {{ form_row(formAddInscriptionStage.telephone) }}
+                {{ form_row(formAddInscriptionStage.date_naissance) }}
+                
+                <h2>SESSION</h2>
+                
+                {{ form_row(formAddInscriptionStage.sessions) }}
+           
+            {{ form_end(formAddInscriptionStage) }}
+
+        </div>
+    
+    <a class="btn btn-dark" href="{{ path ('app_session') }}">RETOUR</a>
+
+    <figure>
+        <img class="fond" src="{{asset('img/stagiaire.jpg')}}" alt="Stagiaires devant l'entrée">
+    </figure>   
+
+{% endblock %}

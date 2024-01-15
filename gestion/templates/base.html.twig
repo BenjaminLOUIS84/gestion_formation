@@ -62,7 +62,21 @@
         <main class="container">
 
             {% block body %}
+            
                 {# Mettre en place tout ce qui va changer d'une vue à l'autre #}
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                    
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <div class="alert-message">
+                                <strong>{{ message }}</strong>
+                            </div>
+                        </div>
+          
+                    {% endfor %}
+                {% endfor %}
+
             {% endblock %}
 
         </main>
