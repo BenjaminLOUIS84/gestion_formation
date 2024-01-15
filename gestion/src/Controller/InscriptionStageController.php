@@ -47,7 +47,7 @@ class InscriptionStageController extends AbstractController
             
             $stagiaire = $form->getData();                      // Récupérer les informations du nouveau stagiaire 
             $session = $form->getData();                      // Récupérer les informations du nouveau stagiaire 
-            //prepare PDO
+            
 
             $email = (new TemplatedEmail())
             ->from($form->getData()->getMail())
