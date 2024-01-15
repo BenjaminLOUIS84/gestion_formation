@@ -10,8 +10,10 @@
 <p>Téléphone: {{stagiaire.telephone|raw}}</p>
 <p>Date de Naissance: {{stagiaire.dateNaissance|date("d-m-Y")|raw}}</p><br>
 
-<p>Formation souhaitée: {{session|raw}}</p>
+{% for session in stagiaire.sessions %}
+    <p>Formation souhaitée: {{ session.formation|raw }}</p><br>
+{% endfor %}
 
-<br><p>Connectez vous pour ajouter ce stagiaire</p><br>
-<a href="{{ absolute_url(path('app_login')) }}">Connexion</a>
+<br><p>Connectez vous pour ajouter ce stagiaire</p>
+<a href="{{ absolute_url('https://www.projet1.benjaminlouis.eu/public/index.php/login') }}">Connexion</a>
     
