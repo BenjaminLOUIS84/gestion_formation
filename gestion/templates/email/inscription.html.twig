@@ -11,9 +11,9 @@
 <p>Date de Naissance: {{stagiaire.dateNaissance|date("d-m-Y")|raw}}</p><br>
 
 {% for session in stagiaire.sessions %}
-    <p>Formation souhaitée: {{ session.formation|raw }}</p><br>
+    <p>Formation souhaitée: {{ session.formation|raw }}</p>
 {% endfor %}
 
-<br><p>Connectez vous pour ajouter ce stagiaire</p>
+<p>Connectez vous pour ajouter ce stagiaire</p>
 <a href="{{ absolute_url('https://www.projet1.benjaminlouis.eu/public/index.php/login') }}">Connexion</a>
     

@@ -58,7 +58,7 @@ class InscriptionStageController extends AbstractController
 
             $mailer->send($email);
 
-            $this->addFlash('message', 'Inscription en attente de validation');
+            $this->addFlash('message', 'Votre demande a été transmise et votre inscription est en attente de validation');
             
             return $this->redirectToRoute('app_home');     // Rediriger vers la page d'accueil
         }
