@@ -14,7 +14,7 @@ class SendMailService
     }
 
     public function send(
-        string $from,
+        // string $from,
         string $to,
         string $subject,
         string $template,
@@ -23,7 +23,7 @@ class SendMailService
     {
         // On créer le mail
         $email = (new TemplatedEmail())
-            ->from($from)
+            // ->from($from)
             ->to($to)
             ->subject($subject)
             ->htmlTemplate("email/$template.html.twig")
