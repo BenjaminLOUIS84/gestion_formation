@@ -53,7 +53,7 @@ class InscriptionStageController extends AbstractController
             
             // ->from($form->getData()->getMail())
 
-            ->from('gestionformation@projet1.benjaminlouis.eu')
+            // ->from('gestionformation@projet1.benjaminlouis.eu')
             ->to('benlouisdevweb@gmail.com')
             ->subject('Demande d\'admission en formation')
             ->htmlTemplate('email/inscription.html.twig')
