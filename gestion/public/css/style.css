@@ -477,4 +477,10 @@ h3 {
 
 /*TELEPHONE//////////////////////////////////////////////////////*/
 
-@media (min-width: 0) and (max-width: 768px) {}
+@media (min-width: 0) and (max-width: 768px) {
+    footer a {
+        color: white;
+        font-weight: bold;
+        font-size: 1em;
+    }
+}
